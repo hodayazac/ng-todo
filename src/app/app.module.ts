@@ -1,17 +1,15 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import {MaterialModule} from './material/material.module';
+import { MaterialModule } from './material/material.module';
 import { TodoListComponent } from './components/todo-list/todo-list.component';
 import { HeaderComponent } from './components/header/header.component';
 import { TodoComponent } from './components/todo/todo.component';
-import { NewTodoComponent } from './components/new-todo/new-todo.component'
-
-
-
+import { NewTodoComponent } from './components/new-todo/new-todo.component';
+import { DotoContainerComponent } from './doto-container/doto-container.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -19,15 +17,17 @@ import { NewTodoComponent } from './components/new-todo/new-todo.component'
     TodoListComponent,
     HeaderComponent,
     TodoComponent,
-    NewTodoComponent
+    NewTodoComponent,
+    DotoContainerComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    MaterialModule
+    MaterialModule,
+    FormsModule,
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
