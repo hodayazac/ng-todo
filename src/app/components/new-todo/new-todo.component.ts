@@ -16,6 +16,7 @@ export class NewTodoComponent implements OnInit {
   constructor(public dialog: MatDialog, private todoService: TodoService) {}
 
   ngOnInit(): void {}
+  public minDate: Date = new Date();
 
   public onNewTodoSubmit(): void {
     if (this.form.valid) {

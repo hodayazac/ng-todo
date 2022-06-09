@@ -31,6 +31,7 @@
   <mat-form-field appearance="fill">
     <mat-label>Choose a date</mat-label>
     <input
+      [min]="minDate"
       required="=true"
       ngModel
       name="date"
