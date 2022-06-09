@@ -19,6 +19,15 @@ export class TodoService {
   constructor() {}
 
   public getTodoes(): Observable<Array<ITodo>> {
+    if (!this._todoSubject.value.length) {
+      const todoSring = localStorage.getItem('todos');
+      if (todoSring) {
+        const exitingTodos: Array<ITodo> = JSON.parse(todoSring);
+        exitingTodos[0].selected = true;
+        this._todoSubject.next(exitingTodos);
+        this._singleTodoSubject.next(exitingTodos[0]);
+      }
+    }
     return this._todoSubject.asObservable();
   }
   public getSelectedTodo(): Observable<ITodo> {
@@ -32,5 +41,6 @@ export class TodoService {
     const exitingTodos: Array<ITodo> = this._todoSubject.value;
     exitingTodos.push(newTodo);
     this._todoSubject.next(exitingTodos);
+    localStorage.setItem('todos', JSON.stringify(exitingTodos));
   }
 }
