@@ -9,9 +9,16 @@ import { TodoService } from 'src/app/services/todo.service';
   styleUrls: ['./todo.component.scss'],
 })
 export class TodoComponent implements OnInit {
-  @Input() todo: ITodo;
+  @Input() set todo(todo: ITodo) {
+    this._todo = todo;
+  }
+  get todo() {
+    return this._todo;
+  }
 
-  constructor(private todoService: TodoService) {}
+  private _todo: ITodo;
+
+  constructor() {}
 
   ngOnInit(): void {}
 

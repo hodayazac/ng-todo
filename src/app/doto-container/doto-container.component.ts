@@ -13,7 +13,7 @@ import { TodoService } from '../services/todo.service';
 export class DotoContainerComponent implements OnInit, OnDestroy {
   private subscription: Subscription = new Subscription();
   public todo: ITodo;
-  public todos: Array<ITodo> = [];
+  public todos: ITodo[];
 
   constructor(public dialog: MatDialog, private todoService: TodoService) {}
 
